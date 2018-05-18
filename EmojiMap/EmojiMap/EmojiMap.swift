@@ -57,6 +57,31 @@ open class EmojiMap {
         return outPut
     }
     
+    /// Get a random match from all the emojis that can represent words of the input string
+    ///
+    /// - Parameter inputString: String in EN, DE, FR or ES
+    /// - Returns: array of Matches that contains the emoji and the word
+    public func getSingleRandomMatchesFor(_ inputString: String) -> [Match] {
+        
+        // Output array.
+        var outPut = [Match]()
+        
+        // Separe the string in words.
+        for word in inputString.lowercased().components(separatedBy: " ") {
+            
+            // Get a random match searching on emoji db
+            if let matches = mapping[word] {
+                let rndInt = Int(arc4random_uniform(UInt32(matches.count - 1)))
+                let match = Match(string: word, emoji: matches[rndInt])
+                outPut.append(match)
+            }
+        }
+        
+        // Return random output
+        return outPut
+        
+    }
+    
     /// Search for the emoji db in the current language of the user. Currently supported only EN, DE, FR and ES
     ///
     /// - Returns: Mapping of the regular text to emoji characters
@@ -115,7 +140,7 @@ open class EmojiMap {
             let data = try? Data(contentsOf: URL(fileURLWithPath: file)),
             let json = try? JSONSerialization.jsonObject(with: data, options: []),
             let jsonDictionary = json as? NSDictionary {
-                return jsonDictionary
+            return jsonDictionary
         }
         
         // Search for file in main bundle

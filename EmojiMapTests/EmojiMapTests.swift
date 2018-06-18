@@ -1,15 +1,15 @@
 //
-//  EmojiMapTests.swift
-//  EmojiMapTests
+//  EmojimapTests.swift
+//  EmojimapTests
 //
-//  Created by Matias Villaverde on 09.01.18.
+//  Created by Matias on 18.06.18.
 //  Copyright © 2018 Matias Villaverde. All rights reserved.
 //
 
 import XCTest
-@testable import EmojiMap
+@testable import Emojimap
 
-class EmojiMapTests: XCTestCase {
+class EmojimapTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

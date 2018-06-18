@@ -33,6 +33,13 @@ use_frameworks!
 pod 'Emojimap'
 ```
 
+#### Carthage
+Create a `Cartfile` that lists the framework and run `carthage update`. Follow the [instructions](https://github.com/Carthage/Carthage#if-youre-building-for-ios) to add `$(SRCROOT)/Carthage/Build/iOS/YourLibrary.framework` to an iOS project.
+
+```
+github "matiasvillaverde/Emojimap"
+```
+
 #### Manually
 1. Download and drop ```EmojiMap.swift``` in your project.
 2. Download and drop ```emojis-es.json```, ```emojis-en.json```, ```emojis-fr.json```, ```emojis-de.json``` in your project.
